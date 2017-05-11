@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Presentacion SwipeBox</title>
+   <link rel="stylesheet" href="css/swipebox.css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <script  type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <script  type="text/javascript" src="js/jquery.swipebox.js"></script>
+</head>
+<body>
+
+
+  <div class="container">
+    <h1 align="center">Presentación Swipebox</h1>
+    <h3 align="center">Un plugin Jquery para generar galerías de imágenes y videos</h3>
+    <hr>
+    <br>
+
+      <img src="images/galeria.jpg" class="img-rounded center-block" height="300" width="400" /><br><br>
+
+      <button type="button"  onclick="galeria()" class="center-block btn btn-default" >Abrir galeria</button>
+
+
+<script type="text/javascript">
+  function galeria(){
+    $.swipebox( [
+    { href:'images/image1.jpg', title:'Rocas' },
+    { href:'images/image2.jpg', title:'Campo' },
+    {  href:'images/image3.jpg', title:'Otoño' },
+    { href:'images/image4.jpg',title:'Playa'},
+    { href:'images/image5.jpg',title:'Lago'},
+    { href:'images/image6.jpg',title:'Césped'}
+  ], {   hideBarsDelay : 40000 , useSVG : false } );
+  }
+</script>
+
+
+</div>
+
+</body>
+</html>

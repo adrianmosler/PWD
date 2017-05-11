@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercio 11</title>
+	<meta charset="utf-8">
+    <link rel='stylesheet' href='../bootstrap-3.3.7-dist/css/bootstrap.css' media='screen'>
+    
+</head>
+<body>
+
+<div class="container">
+	
+<div class="row">
+	<div class="col-lg-2"><h3>Cinem@s</h3></div>
+</div>
+
+<form action="11.php" method="post">
+	
+	<div class="row">
+		<div class="col-lg-4"><label for="titulo">Titulo</label>
+        <input type="text" id="titulo" name="titulo" class="form-control">
+		</div>
+		<div class="col-lg-4">
+			<label for="actores">Actores</label>
+			<input type="text" id="actores" name="actores" class="form-control">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<label for="director">Director</label>
+			<input type="text" id="director" name="director" class="form-control">
+		</div>
+		<div class="col-lg-4">
+		<label for="guion">Guion</label>
+			<input type="text" id="guion" name="guion" class="form-control">	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<label for="produccion">Produccion</label>
+			<input type="text" id="produccion" name="produccion" class="form-control">
+		</div>
+		<div class="col-lg-1">
+		<label for="anio">Año</label>
+			<input type="text" id="anio" name="anio" class="form-control">	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+		<label for="nacionalidad">Nacionalidad</label><br>
+			<input type="text" id="nacionalidad" name="nacionalidad" class="btn btn-default">	
+		</div>
+		<div class="col-lg-4">
+		<label for="genero">Genero</label><br>
+			<select name="genero" id="genero" class="btn btn-default">
+				<option value="comedia">Comedia</option>
+				<option value="drama">Drama</option>
+				<option value="terror">Terror</option>
+				<option value="romantica">Romantica</option>
+				<option value="suspenso">Suspenso</option>
+				<option value="otras">Otras</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+		<label for="duracion">Duracion</label><br>
+			<input type="text" id="duracion" name="duracion" class="btn btn-default">(minutos)	
+		</div>
+		<div class="col-lg-8">
+		<label for="restriccion">Restricciones de edad</label><br>
+			<input type="radio" id="restriccion" name="restriccion" value="Todo los publicos" class="btn btn-default"> Todos los publicos 
+			<input type="radio" id="restriccion" name="restriccion" value="Mayores de 7 años" class="btn btn-default"> Mayores de 7 años  
+			<input type="radio" id="restriccion" name="restriccion" value="Mayores de 18 años" class="btn btn-default"> Mayores de 18 años 
+				
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+		    <label for="sinopsis">Sinopsis</label>
+			<textarea name="sinopsis" id="sinopsis" cols="80" rows="15"></textarea>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-lg-5"><input type="submit" value="Enviar" class="btn btn-default"></div>
+		<div class="col-lg-5"><input type="reset" value="Borrar datos" class="btn btn-default"></div>
+	</div>
+	
+
+
+
+
+
+
+</form>
+
+
+
+</div>
+
+</body>
+</html>

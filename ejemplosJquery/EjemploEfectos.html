@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejemplos jQuery - Efectos</title>
+  
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$('document').ready(function() {
+  
+  $('#show').click(function(env) {
+    
+    $('#target').show();
+  });
+  
+  $('#hide').click(function(env) {
+    
+    $('#target').hide();
+  });
+  
+  $('#toggle').click(function(env) {
+    
+    $('#target').toggle();
+  });
+  
+  
+  // Con velocidad
+  $('#showSpeed').click(function(env) {
+    // dura 2 segundos
+    $('#target').show(2000);
+  });
+  
+  $('#hideSpeed').click(function(env) {
+    
+    $('#target').hide(2000);
+  });
+  
+  $('#toggleSpeed').click(function(env) {
+    
+    $('#target').toggle(2000);
+  });
+  
+  
+  // Con velocidad
+  $('#showcallback').click(function(env) {
+    // dura 2 segundos
+    $('#target').show(2000, function() {
+      alert("listo");
+    });
+  });
+  
+  $('#hideCallback').click(function(env) {
+    
+    $('#target').hide(2000, function() {
+      alert("listo");
+    });
+  });
+  
+  $('#toggleCallback').click(function(env) {
+    
+    $('#target').toggle(2000, function() {
+      alert("listo");
+    });
+  }); 
+  
+
+  $('#fadein').click(function(env) {
+    
+    $('#target').fadeIn(1000);
+  });
+  
+  $('#fadeout').click(function(env) {    
+    $('#target').fadeOut(1000);
+  });
+
+
+  $('#growRight').click(function(env) {
+    
+    $('#target').animate({
+      width: "300px"
+    }, 1000, "swing");
+  });
+  
+  $('#shrinkLeft').click(function(env) {
+    
+    $('#target').animate({
+      width: "100px"
+    }, 1000, "linear");
+  });
+  
+  $('#growVertical').click(function(env) {
+    
+    $('#target').animate({
+      height: "300px"
+    }, 1000, "linear");
+  });
+  
+  $('#shrinkVertical').click(function(env) {
+    
+    $('#target').animate({
+      height: "100px"
+    }, 1000, "swing");
+  });
+  
+  $('#growVertical').click(function(env) {
+    
+    $('#target').animate({
+      height: "300px"
+    }, 1000, "swing");
+  });
+  
+   
+
+});
+
+</script>
+
+<style type="text/css">
+.playground {
+  width: 500px;
+  height: 300px;
+  background-color: lightblue;
+  padding: 10px;
+  padding-top:40px;
+}
+</style>
+	
+  </head>
+  <body>
+
+    <div id="target" class="playground">
+      Presiona los botones de abajo
+    </div>
+    
+    <button id='show'>mostrar</button>
+    <button id='hide'>ocultar</button>
+    <button id='toggle'>toggle</button>
+  <br />
+  <span>con tiempo: </span>
+  <br />
+    <button id='showSpeed'>mostrar</button>
+    <button id='hideSpeed'>ocultar</button>
+    <button id='toggleSpeed'>toggle</button>
+    <br />
+  <span>con callback: </span>
+  <br />
+    <button id='showcallback'>mostrar</button>
+    <button id='hideCallback'>ocultar</button>
+    <button id='toggleCallback'>toggle</button>
+<br />  
+<span>Desvanecer y aparecer gradualmente elementos</span> <br />
+ <button id='fadein'>Aparecer</button>
+ <button id='fadeout'>Desvanecer</button>
+<br />  
+<span>Deslizando elementos</span> <br /> 
+<button id='growRight'>-></button>
+    <button id='shrinkLeft'><-</button>
+    <button id='growVertical'>V</button>
+    <button id='shrinkVertical'>^</button>
+
+</body>
+</html>

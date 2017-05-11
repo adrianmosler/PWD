@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario
+    </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <form action="1.php" method="post" onsubmit="return validar();" class="form-horizontal" role="form" >
+        <div class="form-group">
+          <label  name="lnombre" for="nombre" class="col-lg-2 control-label">Nombre:
+          </label>
+          <div class="col-lg-10">
+            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Introduzca su nombre">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apellido" class="col-lg-2 control-label">Apellido:
+          </label>
+          <div class="col-lg-10">
+            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Introduzca su apellido">    
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edad" name="ledad" class="col-lg-2 control-label">Edad:
+          </label>
+          <div class="col-lg-10">
+            <input type="text" id="edad" name="edad" class="form-control" placeholder="Introduzca su edad">   
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="direccion" name="ldireccion" class="col-lg-2 control-label">Direccion:
+          </label>
+          <div class="col-lg-10">
+            <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Introduzca su edad">   
+          </div>
+        </div>
+        <hr>
+        <input type="submit" value="Enviar" class="btn btn-default">
+      </form>
+    </div>
+  </body>
+</html>

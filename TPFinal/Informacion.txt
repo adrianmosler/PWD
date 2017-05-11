@@ -1,0 +1,292 @@
+la lista de cosas hacerlas en una tabla...como el ejemplo de las profesoras...en el usuario puedo comprar,y
+que me salga un codigo de barra que identifique la compra barcode bakery...y que el admin pueda borrar o agregar cosas...
+para agregar desde la base de datos
+
+
+crear la mini base de datos con usuarios...cada vez que hago click en registrarse tengo que llenar un formulario
+con todos los datos
+
+
+
+Introduccion:
+La pagina web es acerca de un sitio de ventas de productos informaticos.Va a haber dos tipos de usuarios un administrador
+que gestiona el contenido y las peticiones de registro de usuarios,y un usuario comprador que puede visualizar la lista
+de productos y generar peticiones de compra.Los productos tienen un codigo de identificacion
+una descripcion,una foto asociada?,cantidad disponible.Los usuarios tienen un nombre,una contraseña que va a estar
+cifrada en md5.
+
+Estructura de la pagina
+Consta de una pantalla de login: en el que pide un usuario y contraseña
+y debajo un link para registrarse.
+
+Pagina de compra usuario: cuenta con un menu vertical con las distintas secciones,y un boton para comprar
+
+Funcionalidad:
+Los campos ingresados en el login son comparados en base a informacion guardada en una bd previamente
+transfomando el password ingresado en el campo mediante md5
+
+Link para registrarse: lleva a un formulario para completar los datos para luego ser aprobado por el admin
+y subidos a la base de datos(tiene que ser mayor de edad y el usuario puede tener una cuenta(dni no repetido))
+ademas de que el username no puede estar repetido.Al no usar ajax,esto tenemos que informar el exito o fallo
+ en una pantalla despues de ingresar todos los datos
+
+Pagina de compra usuario: los datos de los productos en cada seccion son generados en base a la informacion
+cargada en una base de datos.
+
+
+El dominio de la pagina es sobre ventas de productos informaticos.Los usuarios que ingresan pueden ver una lista de productos
+ con todos sus detalles
+organizados en categorias.
+Para poder comprar el usuario tiene como requisito estar registrado e ingresar sus datos mediante un formulario
+ para poder llevar a cabo la transaccion,Mas adelante hacer pagina para visitantes pero ellos no pueden
+ ver el boton de compra,solo ver articulos.
+en la que se puede generar una identificacion de la operacion de compra mediante un codigo de barras.
+Hay dos tipo de usuarios,el administrador,que puede aprobar los pedidos de los clientes,gestionar sus cuentas(ABM),
+
+
+
+
+
+
+3 cosas a tener en cuenta con los Roles
+a-ver si la sesion esta activa,y si no esta activa devolverlo a la pagina de Login
+b-ver si la sesion esta activa,preguntar por el rol,y dependiendo la respuesta mandarlo a la pagina correspondiente
+c-cuando voy a la pagina correspondiente ver si esta la sesion activa y preguntar nuevamente
+por el rol,esto es por una cuestion de seguridad
+
+
+
+para subir imagen tengo que usar la clase correspondiente,guardar la clase en alguna carpeta
+destinada para ese fin,y guardar en la base de datos el nombre,para despues recuperar el
+nombre y usarlo en el src para recuperar la imagen en el html
+
+--------------------------------
+Poner id de usuario como autoincrement? que pasa con la sincronizacion con el id del cliente?
+ver pdo lastinsertid
+
+
+Como hago para que verifique la contraseña incorrecta? y me mande un cartel sin tenes que cambiar de pagina
+hacer el control de login en la misma pagina y si no llega a coincidir usar javascript
+
+
+
+
+usuario y cliente insertarse dentro de una transaccion
+un admin puede crear mas admin
+
+Si hay repetido mandar un mensaje que no se pudo crear el cliente
+
+No hacer orm
+
+
+con un header ir al login al cerrar la sesion
+
+
+validarRegistro:
+tengo que recuperar los campos de nombre usuario,dni desde post y hacer una consulta a la base de
+datos y ver que estos datos no esten repetidos...si estan repetidos dirigirlo a una pantalla de error,
+sino cargar los datos en la base
+----------------------------------------------------------------------
+
+Como hago para controlar el tema del pedido,porque yo hago clicks en productos individuales
+EN UNA SESION GUARDO LOS ID Y LA CANTIDAD DE LOS PRODUCTOS EN UN ARREGLO
+
+como hago con las imagenes,pongo tres imagenes para cada uno de los productos(cantidad fija)
+
+como hacer desde el administrador para modificar los elementos?
+para agregar?
+
+
+para hacer: quiero que aparezca el nombre del usuario en el header
+
+
+como hago para ingresar una cantidad de imagenes variables en el galeria?
+
+
+
+por cuestiones de seguridad en todas las paginas pregunto por si hay una sesion activa
+y si hay quien es el usuario activo,en caso de no ser el usuario correspondiente a esa pagina redirigir
+
+
+
+
+puedo hacer funciones php de pequeñas funcionalidades que voy a repetir en varias paginas,y luego
+llamarlas mediante un include en el lugar que corresponda
+
+
+usar header location para irme a otro codigo php y volver sin que el usuario se entere(por ejemplo el
+eliminar)
+
+----modificar la base de datos para poner auto increment , el admin no tiene que saber cual
+es el id de cada cosa----
+
+
+Como manejar las compras
+
+voy a hacer click en el boton de compra,que me va a redirigir a otra pagina en la que me muestra los datos del
+producto,y un algo que me permita elegir la cantidad...voy a guardar en la sesion los datos claves
+que son el id del producto y la cantidad dentro de un arreglo asociativo...luego voy a tener una seccion
+en el menu que sea pedido actual en el cual voy a listar los productos pedido(hacerlo en un archivo
+php externo y llamarlo con un include) en ese mismo script pongo un boton de generar pedido
+y si quiero hacerlo fifi
+
+
+Como manejar la administracion
+
+Tendria que poner ademas si el producto esta activo o inactivo...tengo que hacer la modificacion
+cuando listo los productos,que ademas que recupere los de la categoria correspondiente,ademas
+pregunte si tiene activo en 1
+
+Agregar un atributo a los productos para saber si estan activos o no,y desde el panel de administracion cambio
+esta propiedad...luego cuando recupero en las otras paginas voy a tener que poner una condicion mas en el WHERE
+que es si ademas de pertenecer a la categoria tengo que preguntar si esta activo
+
+agregar: al final de cada listado de productos,mostrar un boton para agregar producto que lleva
+a un formulario de registro de producto.El formulario y el script php hacerlos en el mismo archivo
+
+modificar: muy similar a agregar pero en el formulario van a aparecer los datos como si los hubiera ingresado
+
+eliminar: crear un script en el que pongo en falso el atributo "habilitado",le mando el id del producto por get,
+vuelvo a la funcion con un header location al panel,y el usuario va a poder ver que se cambia un 1 por un 0
+en la parte de habilitado y no se va a mostrar en las busquedas(no se elimina fisicamente porque puede
+haber pedidos con ese producto todavia)
+
+
+
+
+--------
+
+SEGUIMIENTO(a partir de 15/11/16):
+Creado los archivos para administrador alta,baja,modificacion,nuevo.
+Ver la posibilidad de agregar un archivo de alta y otro de nuevo productos.(listo)
+Modificada la base de datos y puesto un atributo activo con default 1 en la tabla producto.
+Desarrollado de manera simple bajaProducto.php.
+Ver la manera de ir a la misma pagina de donde se apreto el boton bajaProducto.(listo)
+Puse un link con clase btn default y lo muestra como boton.
+Puse si el producto esta activo en el panel de administrador.
+Arreglado el numero de imagen que empezaba en cero.
+Agregado boton de baja producto.
+Agregado boton activar producto.
+Agregado que vuelva a la misma categoria cuando doy de alta o baja el producto.
+Terminado script de alta y baja de productos con retorno a su categoria correspondiente.
+El administrador tiene que ver todos los productos esten en alta o baja.(listo)
+El boton de agregar producto tiene que ir arriba de todos los productos.(listo)
+Ver los links rotos por cambio de nombres de archivos.(corregir)
+Agregado el boton modificacion producto sin funcionalidad.
+Creado script php nuevoProducto.php.
+Ver de sacar el atributo cantidad,ya que no lo uso.(modificar)
+Agregado boton nuevo producto con envio de id de categoria(hubo que bajar el string donde estan las
+tablas con los get y las consultas de la bd debajo de la creacion del  objeto pdo,y dentro if($_GET)).
+Desarrollando la subida de imagenes dentro del script nuevoProducto.php
+Arreglado el solapamiento de la llave en la pantalla de bienvenida que indica que es la pagina de administracion.
+Arreglado boton home de admin que no llevaba a ningun lado
+Ver como añadir mas administradores(desarrollar)<-----------mandar al formularioRegistro,y controlar de quien es la sesion
+Ver el script productos.php no tiene la seguridad suficiente(arreglado)
+Anadido icono pagina(no todas,completar).
+Home de visitante redirige a iniciar sesion(arreglado)
+Arreglado esteticamente home de cliente y visitante
+Todos los productos cuando se presiona siendo visitante,permite cerrar sesion(arreglado)
+Como subir varias imagenes a la vez?<------------hacer una cantidad limitada(3 imagenes) y trabajarlos con distinto name
+Como manejar la modificacion de las imagenes?<----------poner un listado de las imagenes con checkbox para poder eliminarlas y por otro lado poder agregar
+Pagina administracion no tiene control de la sesion y de que usuario esta logueado(arreglado)
+Poner el nombre del usuario del administrador(arreglado)
+Arreglado distita tipografia boton Registrarse(faltaba cerrar la etiqueta de span)
+Poner link para volver al querer registrar un producto(arreglado)
+Sacado visualizar todos los productos en administracion,porque habia que sacar las secciones
+de quienes somos y contacto dependiendo el usuario que estuviera viendo el link
+Hacer un footer
+Hacer control de los datos ingresados con javascript<------
+Creado archivo carritoCompras.php
+Añadido link pedido con icono carrito si es cliente en compras.php y pedidos.php
+-crear un script que me muestre los datos cuando los compre y la cantidad de productos,y cuando haga un
+submit registre los datos en la sesion
+-el admin ve los pedidos
+-en el modificar mandar el id del producto y luego en el script modificacionProducto recuperar los datos
+de la base de datos y ponerlos dentro de los inputs
+-cambiado el nombre formularioRegistro.html por formularioRegistro.php,renombrar todos los links
+-Puesto los datos del producto dentro de los inputs(falta imagen y subirlos a base de datos)
+-Para activar pedido voy a tener que generar un miniscript similar a alta producto y baja producto
+-para confirmar el pedido hacer un submit con un name
+-a agregarProductoPedido le puse el mismo codigo html que modificarProducto...sacar este codigo repetido
+y hacer solamente la compra de un solo producto,por lo que voy y vuelvo con el header...simulo
+la compra de un solo producto
+-Error de variable no declarada en visitante
+-poner numero de productos comprados al lado de la imagen del carrito en la barra de menu(listo)
+-Subir a la base de datos el formularioRegistro
+-Subir a la base de datos el pedido(listo) falta la tabla incluye
+-todos los productos de cliente no tiene el numero de pedido al lado del canasto
+-Agregar un boton para descartar pedido de compras general,despues se puede agregar un boton para descartar
+del pedido un producto en particular
+-desde la seccion todos los productos no se puede ir hasta el link de carrito(corregir)
+-Puesto AUTO_INCREMENT en clave table pedidos
+-buscar funcion php para sacar fecha del sistema(listo date)
+-como hago para recuperar el id del pedido cuando solo tengo como dato el id del cliente y la fecha
+en cuyo caso en el que el mismo cliente haya hecho 2 pedidos distintos el mismo dia recupero 2 id de pedidos
+distintos...usar una fecha que ademas contenga la hora?
+-poner un mensaje de que no hay pedidos en el link chango
+-cuando envio pongo la lista de pedidos en cero de nuevo,pero al querer enviar un nuevo pedido del mismo usuario
+en la misma sesion,no me guarda los pedidos en la tabla incluye
+-error en la tabla incluye tira error cuando quiero mandar varios pedidos desde el mismo cliente(arreglado)
+-en desarrollo pedidosPendientes
+-ver la manera optima de sacar el id del producto para vincularlo con la imagen en nuevoProducto.php
+-ver como mandar el get con la idcategoria dentro del submit de nuevoProducto.php
+-en añadir un administrador poner las barras que indican que estoy una una sesion iniaciada
+-arreglar visualmente la seccion pedidos pendientes del administrador
+-Asigne un array vacio a $_SESSION['pedido'] cuando todavia no hice pedido porque me daba error(preguntando mediante
+isset sino siempre borro los pedidos)
+-Desarrollada la opcion descartar pedido
+-Agregado volver a la categoria cuando se compra un producto
+-cuando aprieto el boton de aprobar el pedido en pedidosPendientes.php no los aprueba(no manda el id
+del producto al script aceptarPedido)(listo,estaba cerrando comillas antes del valor del id)
+-Agregar mas datos al listado de pedidos
+-agregar un historial de pedidos
+-agregar seccion donde hay datos de usuario
+-agregar menues en donde no hay
+-ver el lastInsertId(hecho)
+-cambiar el nombre de baja y alta
+-poner la categoria donde estoy parado
+-poner un historial de pedidos de los clientes
+-mandar a una pagina donde diga que la operacion salio exitosa
+-agregar el stock y restar cuando compro
+-Agregado script informacionUsuario.php
+-dentro de informacionusuario ver que la informacion mostrada es distinta dependiendo el rol
+-estoy insertando todas las imagenes en el id del primer producto(Corregido)
+-para mandar datos por formulario y no quiero que se vean,lo mando por input type=hidden
+-puesto el id de los usuarios en AUTO_INCREMENT
+-modificacion a la base de datos,la fecha de nacimiento la tiene la tiene la tabla usuario y no la tabla clientes
+-modificacion a la base de dats,puesto AUTO_INCREMENT el id del cliente
+-como hago para controlar mediante javascript el formulario de registro?porque dependiendo de quien
+sea el que se registre tengo que tener dos tipos de funciones javascript distintas...una idea que se me ocurre
+es poner el codigo javascript dentro de un echo en php,despues veo si lo hago en el mismo archivo en
+externo,pregunto de quien es la sesion,y dependiendo de que sea tengo dos funciones javascript que se van a usar
+en cada caso
+-Para poner en que categoria estoy en compras.php sacarlo de la base de datos(hecho)
+-Modificacion en la base de dato: sacada la nacionalidad y la fecha de nacimiento de la tabla clientes
+-Formulario registro terminado...solo falta controlar mediante javascript
+-Error al guardar la fecha de nacimiento en el formulario de registrado(corregido)
+-Error al querer guardar un cliente...no guarda el rol (porque no hay rol)(corregido)
+-acomodar el codigo de informacionUsuario.php porque tiene codigo pegado y hay cosas que se repiten
+-agregue menu a informacionUsuario.php
+-agregue menu para corregir a añadir administrador,falta el usuario comun
+20/11
+-arreglado links todos los productos
+-error cuando se quiere comprar desde todos los productos(arreglado)
+-cuando quiero comprar desde todos los productos compra solo el que tiene id 1(arreglado)
+-arreglado link que va desde carritoCompras.php hasta informacionUsuario.php desde el menu
+-cuando inserto un pedido tengo que ver que inserte el id del cliente no del usuario(arreglado)
+-Agregado menu de navegacion en registrar usuario y agregar administrador(en admin ver el link para ver datos
+personales)
+-Agregar retriccion de que no pueda agregar mas de una vez el mismo producto en el mismo pedido, que lo ignore(listo)
+-arreglada la categoria carritoCompras.php cuando no tenia ningun pedido para mostrar,con un mensaje
+indicando que no hay pedido y sacando los botones que permiten generar un pedido
+-arreglar la recuperacion de datos del usuario
+-Arreglar el mostrar la informacion del administrador
+-Añadir menu a nuevo producto(listo)
+-añadir checkbox modificar producto
+-añadir menu a modificar producto(listo)
+-agregar mas fotos para agregar en producto nuevo
+-volver del carrito de compras o mandarlo a una pagina de felicitaciones
+-agregar el estado del pedido que ve el usuario(listo)
+-Ver que no se pueda cargar el mismo usuario con el mismo nickname
+-Acomodar los menues informacionAdmin.php
+-Guardar datos necesarios para loguearse

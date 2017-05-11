@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
+
+ <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+
+   $('document').ready(function() {
+	$("#click").click(function() {
+		alert("click simple");
+	});
+
+  	$("#dblclick").dblclick(function() {
+		alert("doble click");
+	});
+
+	$("#mouse1").mouseenter(function() {
+		$(this).css("color","red");
+	});
+
+	$("#mouse1").mouseleave(function() {
+		$(this).css("color","blue");
+	}); 
+
+	$("#pulsaRaton").mousedown(function() {
+		$(this).html("<b>mousedown</b>, mouseup: pulsado")
+	});
+
+	$("#pulsaRaton").mouseup(function() {
+		$(this).html("mousedown, <b>mouseup</b>: sin pulsar")
+	});
+
+
+	n2=0;
+	$("#capa2").mouseover(function(){
+		n2++;
+		$("#mouseover").html("mouseover: "+n2+" veces");
+	});
+
+
+	$("#miLista").change(function(){
+	    alert("Value: " + $("#miLista").val());
+	    alert("Texto: " + $("#miLista option:selected").text());
+	});
+
+
+   });
+
+</script>
+
+</head>
+<body>
+
+<div id="capa2">
+
+ <h2 style="font: italic 18px verdana; color: olive;">Pr&aacute;ctica eventos I</h2>
+<p style="font: 13px arial;" id="click">click aqu&iacute;.</p>
+<p style="font: 13px arial;" id="dblclick"> doble click (dblclick) aqu&iacute;.</p>
+<p style="font: 13px arial; color: blue;" id="mouse1">Aqu&iacute; mouseenter y mouseleave</p>
+<p style="font: 13px arial; color: blue;" id="hover">Aqu&iacute; hover</p>
+<p style="font: 13px arial;" id="pulsaRaton">mousedown, mouseup: sin pulsar (up)
+</p>
+<p>Elegir Opci&oacute;n: 
+<select id="miLista" name="miLista">
+<option value="0">Opcion Elegida</option>
+<option value="1">Opcion Uno</option>
+<option value="2">Opcion Dos</option>
+<option value="3">Opcion Tres</option>
+</select>
+
+</div>
+	
+</body>
+</html>

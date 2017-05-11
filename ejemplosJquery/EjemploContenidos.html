@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
+
+ <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+
+   $('document').ready(function() {
+
+	 $('a').attr('href', 'http://en.wikipedia.org/wiki/Avengers_(comics)');
+
+ 	$('#contenido').click(function(env) {
+     	   $('.avengers').html('<li>Black Widow</li>');
+   	});
+
+  $('#atributos').click(function(env) {
+     
+     alert($('img').attr('src'));
+     $('img').attr('src', 'http://sagapodcast.com/blog/wp-content/uploads/2015/04/20150213_avenger_main.jpg');
+
+ });	
+
+$('#agCont').click(function(env) {
+     
+    $('.avengers').append('<li>Ironman</li>');
+    $('.avengers').append('<li>Captain America</li>');
+
+ });
+
+
+
+
+   });
+
+</script>
+
+</head>
+<body>
+  <ul class="avengers">
+    <li>Ironman</li>
+    <li>Thor</li>
+    <li>Captain America</li>
+    <li>Hulk</li>
+  </ul><br />
+ <img src="http://upload.wikimedia.org/wikipedia/en/0/0f/Avs38.jpg" />
+ <br />
+
+  <a href="#">Ver en Wikipedia</a>
+
+<br /><br />
+<button id='contenido'>Contenido HTML</button>
+<button id='atributos'>Atributos</button>
+<button id='agCont'>Agregar Contenido</button>
+
+</body>
+</html>
